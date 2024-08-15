@@ -1,0 +1,3 @@
+java -Xmx16G -Xms4G -jar server.jar --nogui
+sudo apt update && apt  upgrade 
+wget https://api.purpurmc.org/v2/purpur/1.20.6/latest/download

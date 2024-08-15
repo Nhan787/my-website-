@@ -1,0 +1,76 @@
+
+{
+	"commands" : 
+	[
+		"{%group}.sheet",
+		"genr sanluongf=mav(sanluong,3)",
+		"genr sanluongf2 =@mav(sanluong,3)",
+		"genr e= sanluong-sanluongf2",
+		"genr RMSE = @sqrt(@sum(e^2)/40)",
+		"genr e= sanluong-sanluongf2",
+		"genr e= sanluong-sanluongf2"
+	],
+	"description" : "",
+	"label" : "auto",
+	"workbook_meta" : 
+	{
+		"_name" : "c:\\users\\nhan\\documents\\1.wf1",
+		"_pages" : 
+		[
+			
+			{
+				"_frequency" : "M",
+				"_last_update" : [ 739029.6358912037, "05/24/2024 15:15" ],
+				"_name" : "Untitled",
+				"_obj_count" : 7,
+				"_objects" : 
+				[
+					
+					{
+						"_data_type" : "date",
+						"_name" : "@DATE",
+						"_obs_max" : [ 739006.0, "05/01/2024" ],
+						"_obs_min" : [ 737790.0, "01/01/2021" ],
+						"_type" : "INDEX"
+					},
+					
+					{
+						"_name" : "C",
+						"_type" : "COEF"
+					},
+					
+					{
+						"_name" : "E",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "NHIETDO",
+						"_type" : "ALPHA"
+					},
+					
+					{
+						"_name" : "RESID",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "RMSE",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "SANLUONG",
+						"_type" : "SERIES"
+					},
+					
+					{
+						"_name" : "SANLUONGF2",
+						"_type" : "SERIES"
+					}
+				],
+				"_obs_count" : 41
+			}
+		]
+	}
+}

